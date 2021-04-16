@@ -8,43 +8,6 @@
 
 import UIKit
 
-extension UILabel {
-    @IBInspectable
-    var localizedTextKey: String {
-        set{
-            self.text = NSLocalizedString(newValue, comment: "")
-               // newValue.localized
-        }
-
-        get{
-            return text ?? ""
-        }
-    }
-}
-
-extension UISegmentedControl {
-    @IBInspectable
-    var lSe0Key: String {
-        set{
-            self.setTitle(newValue, forSegmentAt: 0)
-        }
-
-        get{
-            return titleForSegment(at: 0) ?? ""
-        }
-    }
-
-    @IBInspectable
-    var lSe1Key: String {
-        set{
-            self.setTitle(newValue, forSegmentAt: 1)
-        }
-
-        get{
-            return titleForSegment(at: 1) ?? ""
-        }
-    }
-}
 
 extension UIImageView {
 

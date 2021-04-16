@@ -17,15 +17,15 @@ final class CartViewModel {
 
     weak var cartDelegate: CartViewModelOutput?
 
-    func getMyCart() {
+    func getMyCart(withRemoveOldFrom: Int) {
         if let cart = CurrentProductModel.decodeObject() {
             cartDelegate?.present(cart: cart)
-            checkMyCart()
+            checkMyCart(removeOldFrom: withRemoveOldFrom)
         }
     }
 
-
-    private func checkMyCart() {
+    // check if product date from 3 days app will remove it.
+    private func checkMyCart(removeOldFrom: Int) {
         if let cart = CurrentProductModel.decodeObject() {
             var newCart = CurrentProductModel()
 
@@ -35,7 +35,7 @@ final class CartViewModel {
                     let interval = Calendar.current.dateComponents([.day],
                                                                    from: creationDate,
                                                                    to: Date())
-                    if let daysAgo = interval.day, daysAgo < 2 {
+                    if let daysAgo = interval.day, daysAgo < removeOldFrom {
                         newCart.product.append(Product)
                     }
                 }

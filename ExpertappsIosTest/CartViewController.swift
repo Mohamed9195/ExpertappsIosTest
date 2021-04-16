@@ -23,7 +23,7 @@ class CartViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        viewModel.getMyCart()
+        viewModel.getMyCart(withRemoveOldFrom: 3)
     }
 
     @IBAction func touchUpToDismissView(_ sender: UIButton) {
@@ -31,12 +31,9 @@ class CartViewController: UIViewController {
     }
 }
 
-
 //MARK:- viewModel Delegation
 extension CartViewController: CartViewModelOutput {
-    func present(error: Error) {
-
-    }
+    func present(error: Error) { }
 
     func present(cart: CurrentProductModel) {
         currentCart = cart
@@ -54,10 +51,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell")  else {
             fatalError("no cell kitchenTableViewCell")
         }
+
         if let product = currentCart?.product[indexPath.row] {
             cell.textLabel?.text = product.productName
             cell.detailTextLabel?.text = Date(timeIntervalSince1970: product.initDate ?? 0.0).description
         }
+        
         return cell
     }
 }

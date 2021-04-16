@@ -19,11 +19,13 @@ struct CurrentProductModel: Codable {
         var initDate: TimeInterval?
     }
 
+    // to cache product
     static func encodeObject(currentObject: CurrentProductModel) {
         let objectData = try? PropertyListEncoder().encode(currentObject)
         objectData != nil ? (UserDefaults.standard.set(objectData!, forKey: "EncodeCurrentObject")) : ()
     }
 
+    // to get all product cached
     static func decodeObject() -> CurrentProductModel? {
         let storedObject = UserDefaults.standard.object(forKey: "EncodeCurrentObject") as? Data
         if storedObject != nil {
@@ -33,8 +35,4 @@ struct CurrentProductModel: Codable {
             return nil
         }
     }
-}
-
-final class CurrentProduct {
-    static var product: BehaviorSubject<CurrentProductModel?> = BehaviorSubject(value: CurrentProductModel.decodeObject())
 }
