@@ -11,6 +11,7 @@ target 'ExpertappsIosTest' do
 
  #UI
     pod 'PKHUD', '~> 5.3'
+    pod 'SwiftMessages'
     pod "SkeletonView"
 
   # Pods for ExpertappsIosTest
