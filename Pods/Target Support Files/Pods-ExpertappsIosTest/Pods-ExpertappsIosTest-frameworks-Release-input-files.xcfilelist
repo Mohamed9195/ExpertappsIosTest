@@ -1,0 +1,8 @@
+${PODS_ROOT}/Target Support Files/Pods-ExpertappsIosTest/Pods-ExpertappsIosTest-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework
+${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework
+${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework
